@@ -1,4 +1,12 @@
 # lab13-AsyncInn
+
+This application utilizes MVC pracitces to create and make a front end to the back end database i created. the database contains multiple tables and properties of data in those tables that are all properly connected
+clone the repo to your machine
+open AsyncInn.SLN
+
+CRUD
+
+
 ![ASyncInn](/assets/AsyncInn2.PNG)
 
 Hotel has a PK and references Hotel room
