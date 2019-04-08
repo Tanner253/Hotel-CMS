@@ -3,33 +3,22 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncdbContext))]
-    partial class AsyncdbContextModelSnapshot : ModelSnapshot
+    [Migration("20190407172943_compositeTables")]
+    partial class compositeTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("AsyncInn.Models.Amenities", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Amenities");
-                });
 
             modelBuilder.Entity("AsyncInn.Models.Hotel", b =>
                 {
@@ -50,26 +39,6 @@ namespace AsyncInn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Hotel");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            City = "Seattle",
-                            Name = "TestHotel",
-                            Phone = 1234567,
-                            State = "Washington",
-                            StreetAdress = "0000 Fake Addy"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            City = "Seattle",
-                            Name = "TestHote2",
-                            Phone = 222222222,
-                            State = "Washington",
-                            StreetAdress = "0001 Fake Addy"
-                        });
                 });
 
             modelBuilder.Entity("AsyncInn.Models.HotelRoom", b =>
@@ -101,30 +70,13 @@ namespace AsyncInn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<int>("Layout");
 
-                    b.Property<int>("RoomLayout");
+                    b.Property<string>("Name");
 
                     b.HasKey("ID");
 
                     b.ToTable("Room");
-                });
-
-            modelBuilder.Entity("AsyncInn.Models.RoomAmenities", b =>
-                {
-                    b.Property<int>("AmenitiesID");
-
-                    b.Property<int>("RoomID");
-
-                    b.HasKey("AmenitiesID", "RoomID");
-
-                    b.HasIndex("AmenitiesID")
-                        .IsUnique();
-
-                    b.HasIndex("RoomID")
-                        .IsUnique();
-
-                    b.ToTable("RoomAmenities");
                 });
 
             modelBuilder.Entity("AsyncInn.Models.HotelRoom", b =>
@@ -137,19 +89,6 @@ namespace AsyncInn.Migrations
                     b.HasOne("AsyncInn.Models.Room")
                         .WithOne("HotelRoom")
                         .HasForeignKey("AsyncInn.Models.HotelRoom", "RoomID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AsyncInn.Models.RoomAmenities", b =>
-                {
-                    b.HasOne("AsyncInn.Models.Amenities", "Amenities")
-                        .WithOne("RoomAmenities")
-                        .HasForeignKey("AsyncInn.Models.RoomAmenities", "AmenitiesID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithOne("RoomAmenities")
-                        .HasForeignKey("AsyncInn.Models.RoomAmenities", "RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
