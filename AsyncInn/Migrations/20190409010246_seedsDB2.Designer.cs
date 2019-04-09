@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
-    [DbContext(typeof(AsyncdbContext))]
+    [DbContext(typeof(IHotelManager))]
     [Migration("20190409010246_seedsDB2")]
     partial class seedsDB2
     {

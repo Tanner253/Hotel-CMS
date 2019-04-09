@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
-    [DbContext(typeof(AsyncdbContext))]
+    [DbContext(typeof(IHotelManager))]
     partial class AsyncdbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

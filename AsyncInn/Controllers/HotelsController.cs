@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
+using AsyncInn.Models.Interfaces;
 
 namespace AsyncInn.Controllers
 {
     public class HotelsController : Controller
     {
-        private readonly AsyncdbContext _context;
+        private readonly IHotelManager _context;
 
-        public HotelsController(AsyncdbContext context)
+        public HotelsController(IHotelManager context)
         {
             _context = context;
         }
@@ -22,27 +23,29 @@ namespace AsyncInn.Controllers
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Hotel.ToListAsync());
+            List<Hotel> myCourses = await _context.GetCourses();
+            return View(myCourses);
         }
 
         // GET: Hotels/Details/5
-        public async Task<IActionResult> Details(int? id)
+     
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
+            if (id < 1)
             {
                 return NotFound();
             }
 
-            var hotel = await _context.Hotel
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (hotel == null)
+            var course = await _context.GetCourse(id);
+
+            if (course == null)
             {
                 return NotFound();
             }
 
-            return View(hotel);
+            return View(course);
         }
-
+        /*
         // GET: Hotels/Create
         public IActionResult Create()
         {
@@ -148,6 +151,6 @@ namespace AsyncInn.Controllers
         private bool HotelExists(int id)
         {
             return _context.Hotel.Any(e => e.ID == id);
-        }
+        }*/
     }
 }

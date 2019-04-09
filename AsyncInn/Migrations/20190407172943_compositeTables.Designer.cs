@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
-    [DbContext(typeof(AsyncdbContext))]
+    [DbContext(typeof(IHotelManager))]
     [Migration("20190407172943_compositeTables")]
     partial class compositeTables
     {
