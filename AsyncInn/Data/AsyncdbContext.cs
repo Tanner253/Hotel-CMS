@@ -32,16 +32,128 @@ namespace AsyncInn.Data
 
                 },
                 new Hotel
-            {
+                {
 
-                ID = 2,
-                Name = "TestHote2",
-                StreetAdress = "0001 Fake Addy",
-                City = "Seattle",
-                State = "Washington",
-                Phone = 222222222,
+                    ID = 2,
+                    Name = "TestHote2",
+                    StreetAdress = "0001 Fake Addy",
+                    City = "Seattle",
+                    State = "Washington",
+                    Phone = 222222222,
 
-            });
+                },
+                new Hotel
+                {
+                    ID = 3,
+                    Name = "TestHotel3",
+                    StreetAdress = "0002 Fake Addy",
+                    City = "Seattle",
+                    State = "Washington",
+                    Phone = 1111234567,
+
+                },
+                new Hotel
+                {
+                    ID = 4,
+                    Name = "TestHotel4",
+                    StreetAdress = "0003 Fake Addy",
+                    City = "Seattle",
+                    State = "Washington",
+                    Phone = 221234567,
+
+                },
+                new Hotel
+                {
+                    ID = 5,
+                    Name = "TestHotel5",
+                    StreetAdress = "0004 Fake Addy",
+                    City = "Seattle",
+                    State = "Washington",
+                    Phone = 331234567,
+
+                },
+                new Hotel
+                {
+                    ID = 6,
+                    Name = "TestHotel6",
+                    StreetAdress = "0005 Fake Addy",
+                    City = "Seattle",
+                    State = "Washington",
+                    Phone = 441234567,
+
+                });
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    ID = 1,
+                    Name = "Red",
+                    RoomLayout = Models.Room.Layout.Studio
+
+                },
+                new Room
+                {
+                    ID = 2,
+                    Name = "Blue",
+                    RoomLayout = Models.Room.Layout.Studio
+
+                },
+                new Room
+                {
+                    ID = 3,
+                    Name = "Green",
+                    RoomLayout = Models.Room.Layout.OneBedroom
+
+                },
+                new Room
+                {
+                    ID = 4,
+                    Name = "Yellow",
+                    RoomLayout = Models.Room.Layout.OneBedroom
+
+                },
+                new Room
+                {
+                    ID = 5,
+                    Name = "Orange",
+                    RoomLayout = Models.Room.Layout.TwoBedroom
+
+                },
+                new Room
+                {
+                    ID = 6,
+                    Name = "Purple",
+                    RoomLayout = Models.Room.Layout.TwoBedroom
+
+                });
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                    {
+                        ID = 1,
+                        Name = "Heating"
+                    },
+                new Amenities
+                    {
+                        ID = 2,
+                        Name = "In-Unit Laundry"
+                    },
+                new Amenities
+                    {
+                        ID = 3,
+                        Name = "Pool"
+                    },
+                new Amenities
+                    {
+                        ID = 4,
+                        Name = "Balcony"
+                    },
+                new Amenities
+                    {
+                        ID = 5,
+                        Name = "WiFi"
+                    });
+
+
+
             /*modelBuilder.Entity<HotelRoom>().HasData(
                 new HotelRoom
                 {
