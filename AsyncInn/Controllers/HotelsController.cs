@@ -23,7 +23,7 @@ namespace AsyncInn.Controllers
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
-            List<Hotel> myCourses = await _context.GetCourses();
+            List<Hotel> myCourses = await _context.GetHotels();
             return View(myCourses);
         }
 
@@ -36,7 +36,7 @@ namespace AsyncInn.Controllers
                 return NotFound();
             }
 
-            var course = await _context.GetCourse(id);
+            var course = await _context.GetHotel(id);
 
             if (course == null)
             {
