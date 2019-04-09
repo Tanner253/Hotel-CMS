@@ -7,7 +7,7 @@ open AsyncInn.SLN
 CRUD
 
 
-![ASyncInn](assets/AsyncInn2.PNG)
+![ASyncInn](../assets/AsyncInn2.PNG)
 
 Hotel has a PK and references Hotel room
 HotelRoom has a FK HotelID and FK roomID
