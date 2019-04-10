@@ -1,13 +1,5 @@
-﻿main {
-   
-}
-
-body {
-    background: #666;
-    color: white;
-    background-color: black;
+﻿body{
     width:960px;
     margin:auto;
-    padding 40px;
-
 }
+
