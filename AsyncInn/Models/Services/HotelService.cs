@@ -26,11 +26,11 @@ namespace AsyncInn.Models.Services
 
         public async Task<Hotel> DeleteHotel(int id)
         {
-           
+
             Hotel hotel = await _context.Hotel
                 .FirstOrDefaultAsync(m => m.ID == id);
             return hotel;
-            
+
 
         }
         public async Task DeleteHotelFR(int id)
@@ -38,7 +38,7 @@ namespace AsyncInn.Models.Services
             var hotel = await _context.Hotel.FindAsync(id);
             _context.Hotel.Remove(hotel);
             await _context.SaveChangesAsync();
-          
+
         }
         /*         public async Task<Student> GetStudent(int id)
         {
@@ -55,14 +55,15 @@ namespace AsyncInn.Models.Services
         public async Task<Hotel> GetHotel(int id)
         {
             var course = await _context.Hotel.FindAsync(id);
-          
+
 
             return course;
         }
 
-        public async Task<List<Hotel>> GetHotels()
+        public async Task<IEnumerable<Hotel>> GetHotels()
         {
-            return await _context.Hotel.ToListAsync();
+            var hotels = await _context.Hotel.ToListAsync();
+            return hotels;
         }
 
         public bool HotelExists(int id)
@@ -71,11 +72,20 @@ namespace AsyncInn.Models.Services
 
         }
 
-        /*public async Task<ICollection<Room>> HotelRoom(int id)
+        public async Task<IEnumerable<HotelRoom>> GetHotelRooms(int hotelId)
         {
-            return await _context.Room.
-            
-        }*/
+
+            var hotelrooms = await  _context.HotelRoom
+                                           .Include(t => t.Hotel)
+                                            .Where(m => m.HotelID == hotelId).ToListAsync();
+            /* var allHotelRooms = from rm in _context.HotelRoom
+                                 where rm.HotelID == id
+                                 select rm;
+                                 */
+
+            return hotelrooms;
+
+        }
 
 
         public async Task UpdateHotel(int id, [Bind("ID,Name,StreetAdress,City,State,Phone")] Hotel hotel)
@@ -84,6 +94,6 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
         }
 
-       
+
     }
 }

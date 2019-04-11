@@ -15,13 +15,13 @@ namespace AsyncInn.Models.Interfaces
 
         Task DeleteHotelFR(int id);
 
-        //Task<ICollection<Room>> HotelRoom(int id);
 
         Task<Hotel> GetHotel(int id);
 
-        Task<List<Hotel>> GetHotels();
+        Task<IEnumerable<Hotel>> GetHotels();
 
         bool HotelExists(int id);
 
+        Task<IEnumerable<HotelRoom>> GetHotelRooms(int hotelId);
     }
 }
