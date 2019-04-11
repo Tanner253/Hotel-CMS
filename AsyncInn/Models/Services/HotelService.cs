@@ -26,11 +26,11 @@ namespace AsyncInn.Models.Services
 
         public async Task<Hotel> DeleteHotel(int id)
         {
-           
+
             Hotel hotel = await _context.Hotel
                 .FirstOrDefaultAsync(m => m.ID == id);
             return hotel;
-            
+
 
         }
         public async Task DeleteHotelFR(int id)
@@ -38,24 +38,32 @@ namespace AsyncInn.Models.Services
             var hotel = await _context.Hotel.FindAsync(id);
             _context.Hotel.Remove(hotel);
             await _context.SaveChangesAsync();
-          
+
         }
-        
+        /*         public async Task<Student> GetStudent(int id)
+        {
+            Student student = await _context.Students
+                                            .Include(t => t.Transcripts)
+                                            .ThenInclude(x => x.Course)
+                                            .Include(t => t.Enrollments)
+                                            .FirstOrDefaultAsync(m => m.ID == id);
+
+            return student;
+
+        }*/
 
         public async Task<Hotel> GetHotel(int id)
         {
             var course = await _context.Hotel.FindAsync(id);
-            if (course == null)
-            {
-                return null;
-            }
+
 
             return course;
         }
 
-        public async Task<List<Hotel>> GetHotels()
+        public async Task<IEnumerable<Hotel>> GetHotels()
         {
-            return await _context.Hotel.ToListAsync();
+            var hotels = await _context.Hotel.ToListAsync();
+            return hotels;
         }
 
         public bool HotelExists(int id)
@@ -64,9 +72,19 @@ namespace AsyncInn.Models.Services
 
         }
 
-        public Task<Hotel> HotelRoom(int id)
+        public async Task<IEnumerable<HotelRoom>> GetHotelRooms(int hotelId)
         {
-            throw new NotImplementedException();
+
+            var hotelrooms = await  _context.HotelRoom
+                                           .Include(t => t.Hotel)
+                                            .Where(m => m.HotelID == hotelId).ToListAsync();
+            /* var allHotelRooms = from rm in _context.HotelRoom
+                                 where rm.HotelID == id
+                                 select rm;
+                                 */
+
+            return hotelrooms;
+
         }
 
 
@@ -76,6 +94,6 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
         }
 
-       
+
     }
 }

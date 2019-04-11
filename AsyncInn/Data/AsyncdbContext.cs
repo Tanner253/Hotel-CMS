@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AsyncInn.Models;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Features;
 using Microsoft.EntityFrameworkCore;
 namespace AsyncInn.Data
 {
@@ -17,7 +18,7 @@ namespace AsyncInn.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // this is the establishment of our composite key
-            modelBuilder.Entity<HotelRoom>().HasKey(ce => new { ce.HotelID, ce.RoomID });
+            modelBuilder.Entity<HotelRoom>().HasKey(ce => new { ce.HotelID, ce.RoomNumber });
             modelBuilder.Entity<RoomAmenities>().HasKey(ce => new { ce.AmenitiesID, ce.RoomID });
 
             modelBuilder.Entity<Hotel>().HasData(
@@ -127,51 +128,115 @@ namespace AsyncInn.Data
                 });
             modelBuilder.Entity<Amenities>().HasData(
                 new Amenities
-                    {
-                        ID = 1,
-                        Name = "Heating"
-                    },
+                {
+                    ID = 1,
+                    Name = "Heating"
+                },
                 new Amenities
-                    {
-                        ID = 2,
-                        Name = "In-Unit Laundry"
-                    },
+                {
+                    ID = 2,
+                    Name = "In-Unit Laundry"
+                },
                 new Amenities
-                    {
-                        ID = 3,
-                        Name = "Pool"
-                    },
+                {
+                    ID = 3,
+                    Name = "Pool"
+                },
                 new Amenities
-                    {
-                        ID = 4,
-                        Name = "Balcony"
-                    },
+                {
+                    ID = 4,
+                    Name = "Balcony"
+                },
                 new Amenities
-                    {
-                        ID = 5,
-                        Name = "WiFi"
-                    });
+                {
+                    ID = 5,
+                    Name = "WiFi"
+                });
 
 
-
-            /*modelBuilder.Entity<HotelRoom>().HasData(
+            /*
+            modelBuilder.Entity<HotelRoom>().HasData(
                 new HotelRoom
                 {
                     HotelID = 1,
                     PetFriendly = false,
-                     Rate = 1000,
-                      RoomNumber = 001,
-                       Hotel = new Hotel(),
-                        RoomID = 1
-
-
-                        
-
-                    
-
-                    
+                    Rate = 1250,
+                    RoomNumber = 001,
+                    Hotel = new Hotel(),
+                    RoomID = 100
+                },
+                new HotelRoom
+                {
+                    HotelID = 2,
+                    PetFriendly = false,
+                    Rate = 1300,
+                    RoomNumber = 002,
+                    Hotel = new Hotel(),
+                    RoomID = 101
+                },
+                new HotelRoom
+                {
+                    HotelID = 3,
+                    PetFriendly = true,
+                    Rate = 1400,
+                    RoomNumber = 003,
+                    Hotel = new Hotel(),
+                    RoomID = 102
+                },
+                new HotelRoom
+                {
+                    HotelID = 4,
+                    PetFriendly = true,
+                    Rate = 1450,
+                    RoomNumber = 004,
+                    Hotel = new Hotel(),
+                    RoomID = 103
                 }
-                );*/
+                );
+            modelBuilder.Entity<RoomAmenities>().HasData(
+                new RoomAmenities
+                {
+                    AmenitiesID = 1,
+
+                    RoomID = 1,
+                    Amenities = new Amenities(),
+                    Room = new Room()
+
+
+
+
+                },
+                new RoomAmenities
+                {
+                    AmenitiesID = 2,
+
+                    RoomID = 2,
+                    Amenities = new Amenities(),
+                    Room = new Room()
+
+
+                },
+                new RoomAmenities
+                {
+                    AmenitiesID = 3,
+
+                    RoomID = 3,
+                    Amenities = new Amenities(),
+                    Room = new Room()
+
+                },
+                new RoomAmenities
+                {
+                    AmenitiesID = 4,
+
+                    RoomID = 4,
+                    Amenities = new Amenities(),
+                    Room = new Room()
+                   
+                }
+                );
+        */
+
         }
 
         //public DbSet<MODELNAME> TABLENAME { get; set; }
