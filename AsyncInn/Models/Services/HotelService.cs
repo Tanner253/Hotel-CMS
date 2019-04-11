@@ -40,15 +40,22 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
           
         }
-        
+        /*         public async Task<Student> GetStudent(int id)
+        {
+            Student student = await _context.Students
+                                            .Include(t => t.Transcripts)
+                                            .ThenInclude(x => x.Course)
+                                            .Include(t => t.Enrollments)
+                                            .FirstOrDefaultAsync(m => m.ID == id);
+
+            return student;
+
+        }*/
 
         public async Task<Hotel> GetHotel(int id)
         {
             var course = await _context.Hotel.FindAsync(id);
-            if (course == null)
-            {
-                return null;
-            }
+          
 
             return course;
         }
@@ -64,10 +71,11 @@ namespace AsyncInn.Models.Services
 
         }
 
-        public Task<Hotel> HotelRoom(int id)
+        /*public async Task<ICollection<Room>> HotelRoom(int id)
         {
-            throw new NotImplementedException();
-        }
+            return await _context.Room.
+            
+        }*/
 
 
         public async Task UpdateHotel(int id, [Bind("ID,Name,StreetAdress,City,State,Phone")] Hotel hotel)
