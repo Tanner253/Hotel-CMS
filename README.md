@@ -1,29 +1,3 @@
-# lab13-AsyncInn
-
-This application utilizes MVC pracitces to create and make a front end to the back end database i created. the database contains multiple tables and properties of data in those tables that are all properly connected
-clone the repo to your machine
-open AsyncInn.SLN
-
-CRUD
-USED RESOURCE: https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_template1
-
-![ASyncInn](/assets/AsyncInn2.PNG)
-
-Hotel has a PK and references Hotel room
-HotelRoom has a FK HotelID and FK roomID
-Hotel room has a CK room number
-Room has an ID and an Enum and references Room Amenities and HotelRoom
-RoomAmenities has 2 dcomposite keys amenitiesID and ROOMID and references them both.
-Amenities references roomAmenities and has a PK
-
-
-
-
-
-
-
-
-
 
 
 # ***Async Inn
@@ -125,28 +99,19 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 | Parameter | Type | Required |
 | --- | --- | --- |
 | ID  | int | YES |
-| Summary | string | YES |
-| Content | string | YES |
-| Tags | string(s) | NO |
-| Picture | img jpeg/png | NO |
-| Sentiment | float | NO |
-| Keywords | string(s) | NO |
-| Related Posts | links | NO |
+| Amenity | string | YES |
+| HotelID | int| YES |
+| HotelRoom | hotelroomID | yes |
+| RoomID | int | yes |
+| Room Layout | enum | YES |
+| Name | string(s) | Yes |
+| Room number | ints | Yes |
 | Date | date/time object | YES |
 
-
-### User
-
-| Parameter | Type | Required |
-| --- | --- | --- |
-| ID  | int | YES |
-| Name/Author | string | YES |
-| Posts | list | YES |
 
 ---------------------------
 
 ## Change Log
-***[The change log will list any changes made to the code base. This includes any changes from TA/Instructor feedback]***
 1.0 Deploys site
 
 ------------------------------
