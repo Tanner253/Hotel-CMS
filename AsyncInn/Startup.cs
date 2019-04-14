@@ -17,11 +17,11 @@ namespace AsyncInn
 {
     public class Startup
     {
-        public Startup (IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
-            /*var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
-            Configuration = builder.Build();*/
+            Configuration = builder.Build();
             Configuration = configuration;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -33,12 +33,15 @@ namespace AsyncInn
 
             services.AddMvc();
             services.AddDbContext<AsyncdbContext>(options =>
-            // ADD | options.UseSqlServer(Configuration.GetConnectionString("ConnectionString:DefaultConnection")));
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-           /* string connectionString = environment.IsDevelopment()
-                                        ? Configuration["ConnectionString:DefaultConnection"]
-                                        : Configuration["ConnectionString:ProductionConnection"];*/
+            /*string connectionString = Environment.IsDevelopment()
+                                         ? Configuration["ConnectionString:DefaultConnection"]
+                                         : Configuration["ConnectionString:ProductionConnection"]; 
+
+             services.AddDbContext<AsyncdbContext>(options =>
+        options.UseSqlServer(connectionString));*/
 
 
             services.AddScoped<IHotelManager, HotelService>();
@@ -61,10 +64,10 @@ namespace AsyncInn
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Hotels}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
             //proof of life
-          
+
 
         }
 

@@ -17,22 +17,24 @@ namespace AsyncInn.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "please enter a valid entry")]
+        [Display(Name = "Street Address")]
         public string StreetAdress { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "please enter a valid City")]
+        [Display(Name = "City")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "please enter a valid State")]
         public string State { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "please enter a valid Phone number")]
         [DataType(DataType.PhoneNumber)]
         public int Phone { get; set; }
 
 
         //connection string
 
-        public Task<IEnumerable<HotelRoom>> HotelRoom { get; set; }
+        public ICollection<HotelRoom> HotelRoom { get; set; }
 
 
     }

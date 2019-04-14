@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Net.Http.Headers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +23,6 @@ namespace AsyncInn.Models.Interfaces
 
         bool HotelExists(int id);
 
-        Task<IEnumerable<HotelRoom>> GetHotelRooms(int hotelId);
+        //ICollection<HotelRoom> GetHotelRooms(int hotelId);
     }
 }

@@ -151,91 +151,13 @@ namespace AsyncInn.Data
                 {
                     ID = 5,
                     Name = "WiFi"
-                });
-
-
-            /*
-            modelBuilder.Entity<HotelRoom>().HasData(
-                new HotelRoom
-                {
-                    HotelID = 1,
-                    PetFriendly = false,
-                    Rate = 1250,
-                    RoomNumber = 001,
-                    Hotel = new Hotel(),
-                    RoomID = 100
-                },
-                new HotelRoom
-                {
-                    HotelID = 2,
-                    PetFriendly = false,
-                    Rate = 1300,
-                    RoomNumber = 002,
-                    Hotel = new Hotel(),
-                    RoomID = 101
-                },
-                new HotelRoom
-                {
-                    HotelID = 3,
-                    PetFriendly = true,
-                    Rate = 1400,
-                    RoomNumber = 003,
-                    Hotel = new Hotel(),
-                    RoomID = 102
-                },
-                new HotelRoom
-                {
-                    HotelID = 4,
-                    PetFriendly = true,
-                    Rate = 1450,
-                    RoomNumber = 004,
-                    Hotel = new Hotel(),
-                    RoomID = 103
                 }
+
+
+            
+          
                 );
-            modelBuilder.Entity<RoomAmenities>().HasData(
-                new RoomAmenities
-                {
-                    AmenitiesID = 1,
-
-                    RoomID = 1,
-                    Amenities = new Amenities(),
-                    Room = new Room()
-
-
-
-
-                },
-                new RoomAmenities
-                {
-                    AmenitiesID = 2,
-
-                    RoomID = 2,
-                    Amenities = new Amenities(),
-                    Room = new Room()
-
-
-                },
-                new RoomAmenities
-                {
-                    AmenitiesID = 3,
-
-                    RoomID = 3,
-                    Amenities = new Amenities(),
-                    Room = new Room()
-
-                },
-                new RoomAmenities
-                {
-                    AmenitiesID = 4,
-
-                    RoomID = 4,
-                    Amenities = new Amenities(),
-                    Room = new Room()
-                   
-                }
-                );
-        */
+        
 
         }
 
