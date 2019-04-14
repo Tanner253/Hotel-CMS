@@ -40,24 +40,17 @@ namespace AsyncInn.Models.Services
             await _context.SaveChangesAsync();
 
         }
-        /*         public async Task<Student> GetStudent(int id)
-        {
-            Student student = await _context.Students
-                                            .Include(t => t.Transcripts)
-                                            .ThenInclude(x => x.Course)
-                                            .Include(t => t.Enrollments)
-                                            .FirstOrDefaultAsync(m => m.ID == id);
-
-            return student;
-
-        }*/
+        
 
         public async Task<Hotel> GetHotel(int id)
         {
-            var course = await _context.Hotel.FindAsync(id);
+            // var course = await _context.Hotel.FindAsync(id);
+            var hotelrooms = await _context.Hotel
+                                           .Include(t => t.HotelRoom)
+                                            .ThenInclude(r => r.Room)
+                                             .FirstOrDefaultAsync(x => x.ID == id);
 
-
-            return course;
+            return hotelrooms;
         }
 
         public async Task<IEnumerable<Hotel>> GetHotels()
@@ -72,20 +65,6 @@ namespace AsyncInn.Models.Services
 
         }
 
-        public async Task<IEnumerable<HotelRoom>> GetHotelRooms(int hotelId)
-        {
-
-            var hotelrooms = await  _context.HotelRoom
-                                           .Include(t => t.Hotel)
-                                            .Where(m => m.HotelID == hotelId).ToListAsync();
-            /* var allHotelRooms = from rm in _context.HotelRoom
-                                 where rm.HotelID == id
-                                 select rm;
-                                 */
-
-            return hotelrooms;
-
-        }
 
 
         public async Task UpdateHotel(int id, [Bind("ID,Name,StreetAdress,City,State,Phone")] Hotel hotel)

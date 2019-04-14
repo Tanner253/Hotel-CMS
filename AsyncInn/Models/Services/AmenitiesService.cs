@@ -45,13 +45,23 @@ namespace AsyncInn.Models.Services
 
         public async Task<Amenities> GetAmenitie(int id)
         {
-            var amenities = await _context.Amenities.FindAsync(id);
-            if (amenities == null)
+            try
             {
+                var amenities = await _context.Amenities.FindAsync(id);
+                if (amenities == null)
+                {
+                    return null;
+                }
+
+                return amenities;
+            }
+            catch (Exception e)
+            {
+                
+                Console.WriteLine(e);
                 return null;
             }
 
-            return amenities;
         }
 
         public async Task<IEnumerable<Amenities>> GetAmenities()

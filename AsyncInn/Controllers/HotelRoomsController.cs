@@ -48,7 +48,8 @@ namespace AsyncInn.Controllers
         // GET: HotelRooms/Create
         public IActionResult Create()
         {
-            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID");
+            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "Name");
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View();
         }
 
@@ -65,7 +66,8 @@ namespace AsyncInn.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "Name", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View(hotelRoom);
         }
 
@@ -82,7 +84,8 @@ namespace AsyncInn.Controllers
             {
                 return NotFound();
             }
-            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "Name", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View(hotelRoom);
         }
 
@@ -118,7 +121,8 @@ namespace AsyncInn.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "Name", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name");
             return View(hotelRoom);
         }
 
