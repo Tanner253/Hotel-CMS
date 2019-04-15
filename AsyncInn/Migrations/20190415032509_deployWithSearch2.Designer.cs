@@ -3,14 +3,16 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncdbContext))]
-    partial class AsyncdbContextModelSnapshot : ModelSnapshot
+    [Migration("20190415032509_deployWithSearch2")]
+    partial class deployWithSearch2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +90,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 1,
                             City = "Seattle",
-                            Name = "Motel Hotel",
+                            Name = "TestHotel",
                             Phone = 1234567,
                             State = "Washington",
                             StreetAdress = "0000 Fake Addy"
@@ -97,7 +99,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 2,
                             City = "Seattle",
-                            Name = "KillerPillar",
+                            Name = "TestHote2",
                             Phone = 222222222,
                             State = "Washington",
                             StreetAdress = "0001 Fake Addy"
@@ -106,7 +108,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 3,
                             City = "Seattle",
-                            Name = "Motten",
+                            Name = "TestHotel3",
                             Phone = 1111234567,
                             State = "Washington",
                             StreetAdress = "0002 Fake Addy"
@@ -115,7 +117,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 4,
                             City = "Seattle",
-                            Name = "Capitolhill heights",
+                            Name = "TestHotel4",
                             Phone = 221234567,
                             State = "Washington",
                             StreetAdress = "0003 Fake Addy"
@@ -124,7 +126,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 5,
                             City = "Seattle",
-                            Name = "shateau Percival",
+                            Name = "TestHotel5",
                             Phone = 331234567,
                             State = "Washington",
                             StreetAdress = "0004 Fake Addy"
@@ -133,7 +135,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 6,
                             City = "Seattle",
-                            Name = "Classico Francico",
+                            Name = "TestHotel6",
                             Phone = 441234567,
                             State = "Washington",
                             StreetAdress = "0005 Fake Addy"

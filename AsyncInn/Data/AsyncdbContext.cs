@@ -25,7 +25,7 @@ namespace AsyncInn.Data
                 new Hotel
                 {
                     ID = 1,
-                    Name = "TestHotel",
+                    Name = "Motel Hotel",
                     StreetAdress = "0000 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
@@ -36,7 +36,7 @@ namespace AsyncInn.Data
                 {
 
                     ID = 2,
-                    Name = "TestHote2",
+                    Name = "KillerPillar",
                     StreetAdress = "0001 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
@@ -46,7 +46,7 @@ namespace AsyncInn.Data
                 new Hotel
                 {
                     ID = 3,
-                    Name = "TestHotel3",
+                    Name = "Motten",
                     StreetAdress = "0002 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
@@ -56,7 +56,7 @@ namespace AsyncInn.Data
                 new Hotel
                 {
                     ID = 4,
-                    Name = "TestHotel4",
+                    Name = "Capitolhill heights",
                     StreetAdress = "0003 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
@@ -66,7 +66,7 @@ namespace AsyncInn.Data
                 new Hotel
                 {
                     ID = 5,
-                    Name = "TestHotel5",
+                    Name = "shateau Percival",
                     StreetAdress = "0004 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
@@ -76,7 +76,7 @@ namespace AsyncInn.Data
                 new Hotel
                 {
                     ID = 6,
-                    Name = "TestHotel6",
+                    Name = "Classico Francico",
                     StreetAdress = "0005 Fake Addy",
                     City = "Seattle",
                     State = "Washington",
