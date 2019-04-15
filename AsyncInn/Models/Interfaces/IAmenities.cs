@@ -20,5 +20,6 @@ namespace AsyncInn.Models.Interfaces
         Task<IEnumerable<Amenities>> GetAmenities();
 
         bool AmenitiesExists(int id);
+   
     }
 }

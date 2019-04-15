@@ -35,8 +35,8 @@ namespace XUnitTestHotels
 
             };
         }*/
-        
-       [Fact]
+
+        [Fact]
         public void CanGetHotel()
         {
             DbContextOptions<AsyncdbContext> options = new DbContextOptionsBuilder<AsyncdbContext>().UseInMemoryDatabase("CanCreateHotel").Options;
@@ -58,10 +58,132 @@ namespace XUnitTestHotels
                 var result = context.Hotel.FirstOrDefault(m => m.ID == hotel.ID);
 
                 Assert.Equal(result, hotel);
-                
-    
+
+
             }
-            
+
+        }
+         [Fact]
+        public void CanGetHotelRoom()
+        {
+            DbContextOptions<AsyncdbContext> options = new DbContextOptionsBuilder<AsyncdbContext>().UseInMemoryDatabase("CanCreateHotel").Options;
+
+            using (AsyncdbContext context = new AsyncdbContext(options))
+            {
+                HotelRoom hotelroom = new HotelRoom();
+                Hotel hotel = new Hotel();
+                Room room = new Room();
+
+                hotelroom.Hotel = hotel;
+                hotelroom.HotelID = 1;
+                hotelroom.PetFriendly = true;
+                hotelroom.Rate = 1200;
+                hotelroom.Room = room;
+                hotelroom.RoomID = 12;
+                hotelroom.RoomNumber = 001;
+
+
+                context.Add(hotelroom);
+                context.SaveChanges();
+
+                var result = context.HotelRoom.FirstOrDefault(m => m.Hotel.ID == hotelroom.HotelID);
+
+                Assert.Equal(result, hotelroom);
+
+
+            }
+        }
+             [Fact]
+        public void CanGetRoom()
+        {
+            DbContextOptions<AsyncdbContext> options = new DbContextOptionsBuilder<AsyncdbContext>().UseInMemoryDatabase("CanCreateHotel").Options;
+
+            using (AsyncdbContext context = new AsyncdbContext(options))
+            {
+                Room room = new Room();
+                HotelRoom hotelroom = new HotelRoom();
+
+                room.HotelRoom = hotelroom;
+                room.ID = 1;
+                room.Name = "Awesomeness";
+                room.RoomAmenities = new RoomAmenities();
+                room.RoomLayout = 0;
+
+
+
+
+                context.Add(hotelroom);
+                context.SaveChanges();
+
+                var result = context.Room.FirstOrDefault(m => m.ID == room.ID);
+
+                Assert.NotEqual(result, room);
+
+
+            }
+
+
+        }
+        [Fact]
+        public void CanGetAmenitie()
+        {
+            DbContextOptions<AsyncdbContext> options = new DbContextOptionsBuilder<AsyncdbContext>().UseInMemoryDatabase("CanCreateHotel").Options;
+
+            using (AsyncdbContext context = new AsyncdbContext(options))
+            {
+                Amenities amenities = new Amenities();
+
+                amenities.Name = "Heat";
+                amenities.ID = 1;
+                amenities.RoomAmenities = new RoomAmenities();
+
+
+
+
+
+
+                context.Add(amenities);
+                context.SaveChanges();
+
+                var result = context.Amenities.FirstOrDefault(m => m.ID == amenities.ID);
+
+                Assert.Equal(result, amenities);
+
+
+            }
+
+
+        }
+        //[Fact]
+        public void CanGetRoomAmenities()
+        {
+            DbContextOptions<AsyncdbContext> options = new DbContextOptionsBuilder<AsyncdbContext>().UseInMemoryDatabase("CanCreateHotel").Options;
+
+            using (AsyncdbContext context = new AsyncdbContext(options))
+            {
+                RoomAmenities roomamenities = new RoomAmenities();
+
+                roomamenities.Amenities = new Amenities();
+                roomamenities.AmenitiesID = 1;
+                roomamenities.Room= new Room();
+                roomamenities.RoomID = 1;
+
+
+
+
+
+
+                context.Add(roomamenities);
+                context.SaveChanges();
+
+                var result = context.HotelRoom.FirstOrDefault(m => m.Hotel.ID == roomamenities.RoomID);
+
+                Assert.NotEqual(result, roomamenities);
+
+
+            }
+
+
         }
         [Fact]
         public void HotelPropertiesID()
@@ -136,7 +258,7 @@ namespace XUnitTestHotels
         public void HotelRoomPropertiesRate()
         {
             HotelRoom hotelRoom = new HotelRoom();
-            var result = hotelRoom.HotelID = 5555;
+            var result = hotelRoom.Rate = 5555;
             Assert.Equal(result, hotelRoom.Rate);
         }
         [Fact]
@@ -145,6 +267,20 @@ namespace XUnitTestHotels
             HotelRoom hotelRoom = new HotelRoom();
             var result = hotelRoom.PetFriendly = true;
             Assert.Equal(result, hotelRoom.PetFriendly);
+        }
+        [Fact]
+        public void AmenitiesPropertiesName()
+        {
+            Amenities amenities = new Amenities();
+            var result = amenities.Name = "Heating";
+            Assert.Equal(result, amenities.Name);
+        }
+        [Fact]
+        public void AmenitiesPropertiesID()
+        {
+            Amenities amenities = new Amenities();
+            var result = amenities.ID = 5;
+            Assert.Equal(result, amenities.ID);
         }
 
     }
