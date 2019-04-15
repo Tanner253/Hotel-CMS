@@ -5,11 +5,17 @@
     Layout = "_Layout";
 }
 
-<h1>Index</h1>
+<h1>Amenities</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Amenities" asp-action="Index">
+    <p>
+        Search: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>

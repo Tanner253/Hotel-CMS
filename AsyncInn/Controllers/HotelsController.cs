@@ -21,13 +21,27 @@ namespace AsyncInn.Controllers
         }
 
         // GET: Hotels
-        public async Task<IActionResult> Index()
+        /// <summary>
+        /// gets hotels
+        /// </summary>
+        /// <param name="searchstring">string optional</param>
+        /// <returns>hotels</returns>
+        public async Task<IActionResult> Index(string searchstring)
         {
-            IEnumerable<Hotel> Hotels = await _context.GetHotels();
-            return View(Hotels);
+
+            IEnumerable<Hotel> Hotels =  await _context.GetHotels();
+            var hotels =  from m in Hotels
+                         select m;
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                hotels = hotels.Where(s => s.Name.Contains(searchstring));
+            }
+
+            return View( hotels);
         }
 
         // GET: Hotels/Details/5
+
      
         public async Task<IActionResult> Details(int id)
         {
