@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AsyncInn.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace AsyncInn.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,7 +43,7 @@ namespace AsyncInn.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     RoomLayout = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -119,12 +119,12 @@ namespace AsyncInn.Migrations
                 columns: new[] { "ID", "City", "Name", "Phone", "State", "StreetAdress" },
                 values: new object[,]
                 {
-                    { 6, "Seattle", "TestHotel6", 441234567, "Washington", "0005 Fake Addy" },
-                    { 5, "Seattle", "TestHotel5", 331234567, "Washington", "0004 Fake Addy" },
-                    { 4, "Seattle", "TestHotel4", 221234567, "Washington", "0003 Fake Addy" },
-                    { 2, "Seattle", "TestHote2", 222222222, "Washington", "0001 Fake Addy" },
-                    { 1, "Seattle", "TestHotel", 1234567, "Washington", "0000 Fake Addy" },
-                    { 3, "Seattle", "TestHotel3", 1111234567, "Washington", "0002 Fake Addy" }
+                    { 6, "Seattle", "Classico Francico", 441234567, "Washington", "0005 Fake Addy" },
+                    { 5, "Seattle", "shateau Percival", 331234567, "Washington", "0004 Fake Addy" },
+                    { 4, "Seattle", "Capitolhill heights", 221234567, "Washington", "0003 Fake Addy" },
+                    { 2, "Seattle", "KillerPillar", 222222222, "Washington", "0001 Fake Addy" },
+                    { 1, "Seattle", "Motel Hotel", 1234567, "Washington", "0000 Fake Addy" },
+                    { 3, "Seattle", "Motten", 1111234567, "Washington", "0002 Fake Addy" }
                 });
 
             migrationBuilder.InsertData(
