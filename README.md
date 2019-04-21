@@ -67,13 +67,13 @@ dotnet run
 ## Usage
 
 ### Overview of Recent Posts
-![Hotels](/assets/img/Capture.JPG)
+![Hotels](/assets/Capture.JPG)
 
 ### Creating a Post
-![Post Creation](/assets/img/Capure2.JPG)
+![Post Creation](/assets/Capure2.JPG)
 
 ### Enriching a Post
-![Enriching Post](/assets/img/Capture3.JPG)
+![Enriching Post](/assets/Capture3.JPG)
 
 
 ---------------------------
@@ -85,7 +85,7 @@ user -> server -> C -> M -> REST api -> C -> V -> Db / User ![Data Flow Diagram]
 
 ### Overall Project Schema
 This is the digram used to make this database
-![Database Schema](/assets/img/ERD.png)
+![Database Schema](/assets/ERD.png)
 
 ---------------------------
 ## Model Properties and Requirements
