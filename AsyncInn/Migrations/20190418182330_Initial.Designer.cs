@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncdbContext))]
-    [Migration("20190414182949_initial")]
-    partial class initial
+    [Migration("20190418182330_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,8 @@ namespace AsyncInn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -89,7 +90,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 1,
                             City = "Seattle",
-                            Name = "TestHotel",
+                            Name = "Motel Hotel",
                             Phone = 1234567,
                             State = "Washington",
                             StreetAdress = "0000 Fake Addy"
@@ -98,7 +99,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 2,
                             City = "Seattle",
-                            Name = "TestHote2",
+                            Name = "KillerPillar",
                             Phone = 222222222,
                             State = "Washington",
                             StreetAdress = "0001 Fake Addy"
@@ -107,7 +108,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 3,
                             City = "Seattle",
-                            Name = "TestHotel3",
+                            Name = "Motten",
                             Phone = 1111234567,
                             State = "Washington",
                             StreetAdress = "0002 Fake Addy"
@@ -116,7 +117,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 4,
                             City = "Seattle",
-                            Name = "TestHotel4",
+                            Name = "Capitolhill heights",
                             Phone = 221234567,
                             State = "Washington",
                             StreetAdress = "0003 Fake Addy"
@@ -125,7 +126,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 5,
                             City = "Seattle",
-                            Name = "TestHotel5",
+                            Name = "shateau Percival",
                             Phone = 331234567,
                             State = "Washington",
                             StreetAdress = "0004 Fake Addy"
@@ -134,7 +135,7 @@ namespace AsyncInn.Migrations
                         {
                             ID = 6,
                             City = "Seattle",
-                            Name = "TestHotel6",
+                            Name = "Classico Francico",
                             Phone = 441234567,
                             State = "Washington",
                             StreetAdress = "0005 Fake Addy"
@@ -167,7 +168,8 @@ namespace AsyncInn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<int>("RoomLayout");
 
