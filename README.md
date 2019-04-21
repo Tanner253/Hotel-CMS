@@ -85,7 +85,7 @@ user -> server -> C -> M -> REST api -> C -> V -> Db / User ![Data Flow Diagram]
 
 ### Overall Project Schema
 This is the digram used to make this database
-![Database Schema](/assets/ERD.png)
+![Database Schema](/assets/AsyncInn2.png)
 
 ---------------------------
 ## Model Properties and Requirements
