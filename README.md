@@ -6,7 +6,7 @@
 
 # Project = AsyncInn
 ---------------------------------
-## We are deployed on Azure!
+## We are deployed on Azure - Taken down 10/1/2019 due to fees
 
 https://asyncinnt253.azurewebsites.net
 
