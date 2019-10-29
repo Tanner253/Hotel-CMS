@@ -8,6 +8,7 @@ using AsyncInn.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Template;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +30,8 @@ namespace AsyncInn
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc()
+        .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddMvc();
             services.AddDbContext<AsyncdbContext>(options =>
