@@ -14,7 +14,7 @@ https://asyncinnt253.azurewebsites.net
 ## Web Application
 
 The web application consists of a frontend written in Razor views, HTML, CSS,
-Bootstrap. The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
+Bootstrap. The backend was written in C# using ASP.NET Core 2.2, Entity Framework Core, and the MVC framework.
 
 This application allows you to seamlisly navigate the website withought any issues andselect hotels based on amenities 
 room availability, price, and much more! these hotels allow the user to save their input and changes to the webpage
